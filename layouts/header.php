@@ -22,7 +22,6 @@
                     <div class="container">
                         <div class="row clearfix">
                             <div class="col-md-6" id="header-text">
-                                <a>TrungPhuNA</a><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </b>
                             </div>
                             <div class="col-md-6">
                                 <nav id="header-nav-top">

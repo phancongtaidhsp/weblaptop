@@ -13,7 +13,7 @@
 
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","","book") or die ();
+            $this->link = mysqli_connect("localhost","root","","computer") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
 

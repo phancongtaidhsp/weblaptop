@@ -22,7 +22,7 @@
                         <section class="box-main1">
                             <?php foreach ($data as $key => $value): ?>
                                 <h3 class="title-main"><a href=""> <?php echo $key?></a> </h3>
-                            <div class="showitem">
+                            <div class="showitem clearfix">
                                 <?php foreach ($value as $item): ?>
                                     <div class="col-md-3 item-product bor">
                                         <a href="">

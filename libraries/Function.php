@@ -101,7 +101,7 @@
     function base_url()
     {
         // return $url  = "http://codedoan.com/"; 
-        return $url  = "http://localhost/Bookstore/"; 
+        return $url  = "http://localhost/weblaptop/"; 
     }
 
 
