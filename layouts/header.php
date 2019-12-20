@@ -1,210 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>MaxShop : Đồ án tốt nghiệp</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/frontend/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/frontend/css/bootstrap.min.css">
-        <script  src="<?php echo base_url()?>public/frontend/js/jquery-3.2.1.min.js"></script>
-        <script  src="<?php echo base_url()?>public/frontend/js/bootstrap.min.js"></script>
-        <!---->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/frontend/css/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/frontend/css/slick-theme.css"/>
-        <!--slide-->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/frontend/css/style.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Trang Admin</title>
+        <link href="<?php echo base_url()?>public/admin/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="<?php echo base_url()?>public/admin/css/sb-admin-2.min.css" rel="stylesheet">
     </head>
-    <body>
+    <body id="page-top">
         <div id="wrapper">
-            <!---->
-            <!--HEADER-->
-            <div id="header">
-                <div id="header-top">
-                    <div class="container">
-                        <div class="row clearfix">
-                            <div class="col-md-6" id="header-text">
-                            </div>
-                            <div class="col-md-6">
-                                <nav id="header-nav-top">
-                                    <ul class="list-inline pull-right" id="headermenu">
-                                        <li>
-                                            <a href=""><i class="fa fa-unlock"></i> Login</a>
-                                        </li>
-                                        <li>
-                                            <a href=""><i class="fa fa-user"></i> My Account <i class="fa fa-caret-down"></i></a>
-                                            <ul id="header-submenu">
-                                                <li><a href="">Contact</a></li>
-                                                <li><a href="">Cart</a></li>
-                                                <li><a href="">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href=""><i class="fa fa-share-square-o"></i> Checkout</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
                     </div>
+                    <div class="sidebar-brand-text mx-3">Ái Hậu </div>
+                </a>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url()?>admin">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Bảng điều khiển</span></a>
+                </li>
+                <li class="nav-item <?php echo isset($open) && $open == 'category' ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?php echo modules("category") ?>">
+                    <i class="fa fa-list"></i>
+                    <span>Danh mục sản phẩm</span></a>
+                </li>
+                <li class="nav-item <?php echo isset($open) && $open == 'product' ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?php echo modules("product") ?>">
+                    <i class="fa fa-database"></i>
+                    <span>Sản phẩm</span></a>
+                </li>
+                <li class="nav-item <?php echo isset($open) && $open == 'admin' ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?php echo modules("admin") ?>">
+                    <i class="fa fa-user"></i>
+                    <span>Admin</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="forms.html">
+                    <i class="fa fa-fw fa-edit"></i>
+                    <span>Form</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bootstrap-elements.html">
+                    <i class="fa fa-fw fa-desktop"></i>
+                    <span>Bootstrap Elements</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bootstrap-grid.html">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span>Bootstrap Grid</span></a>
+                </li>
+                
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="#" >
+                    <i class="fa fa-file"></i>
+                    <span>Blank Pages</span>
+                    </a>
+                    
+                </li>
+                
+                <hr class="sidebar-divider d-none d-md-block">
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-                <div class="container">
-                    <div class="row" id="header-main">
-                        <div class="col-md-5">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label>
-                                        <select name="category" class="form-control">
-                                            <option> All Category</option>
-                                            <option> Dell </option>
-                                            <option> Hp </option>
-                                            <option> Asuc </option>
-                                            <option> Apper </option>
-                                        </select>
-                                    </label>
-                                    <input type="text" name="keywork" placeholder=" input keywork" class="form-control">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="">
-                            <img src="images/logo-default.png">
-                            </a>
-                        </div>
-                        <div class="col-md-3" id="header-right">
-                            <div class="pull-right">
-                                <div class="pull-left">
-                                    <i class="glyphicon glyphicon-phone-alt"></i>
-                                </div>
-                                <div class="pull-right">
-                                    <p id="hotline">HOTLINE</p>
-                                    <p>0986420994</p>
+            </ul>
+            <!-- End of Sidebar -->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- Topbar Search -->
+                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--END HEADER-->
-            <!--MENUNAV-->
-            <div id="menunav">
-                <div class="container">
-                    <nav>
-                        <div class="home pull-left">
-                            <a href="">Trang chủ</a>
-                        </div>
-                        <!--menu main-->
-                        <ul id="menu-main">
-                            <li>
-                                <a href="">Shop</a>
+                        </form>
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </li>
-                            <li>
-                                <a href="">Mobile</a>
+                            <!-- Nav Item - Alerts -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bell fa-fw"></i>
+                                    <!-- Counter - Alerts -->
+                                    <span class="badge badge-danger badge-counter"></span>
+                                </a>
+                                <!-- Dropdown - Alerts -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Alerts Center
+                                    </h6>
+                                   
+                            
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                </div>
                             </li>
-                            <li>
-                                <a href="">Contac</a>
+                            <!-- Nav Item - Messages -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                    <!-- Counter - Messages -->
+                                    <span class="badge badge-danger badge-counter"></span>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Message Center
+                                    </h6>
+                                    
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                </div>
                             </li>
-                            <li>
-                                <a href="">Blog</a>
-                            </li>
-                            <li>
-                                <a href="">About us</a>
+                            <div class="topbar-divider d-none d-sm-block"></div>
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                    </a>
+                                </div>
                             </li>
                         </ul>
-                        <!-- end menu main-->
-                        <!--Shopping-->
-                        <ul class="pull-right" id="main-shopping">
-                            <li>
-                                <a href=""><i class="fa fa-shopping-basket"></i> My Cart </a>
-                            </li>
-                        </ul>
-                        <!--end Shopping-->
                     </nav>
-                </div>
-            </div>
-            <!--ENDMENUNAV-->
-            <div id="maincontent">
-                <div class="container">
-                    <div class="col-md-3  fixside" >
-                        <div class="box-left box-menu" >
-                            <h3 class="box-title"><i class="fa fa-list"></i>  Danh mục</h3>
-                            <ul>
-                                <?php foreach($category as $item) :?>
-                                    <li><a href="danh-muc.php?id=<?php echo $item['id']?>"><?php echo $item['name']?>
-                                        
-                                    </a></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                        <div class="box-left box-menu">
-                            <h3 class="box-title"><i class="fa fa-warning"></i>  Sản phẩm mới </h3>
-                            <!--  <marquee direction="down" onmouseover="this.stop()" onmouseout="this.start()"  > -->
-                            <ul>
-                                <?php foreach ($productNew as $item): ?>
-                                <li class="clearfix">
-                                    <a href="">
-                                        <img src="<?php echo uploads()?>product/<?php echo $item['thunbar']?>" class="img-responsive pull-left" width="80" height="80">
-                                        <div class="info pull-right">
-                                            <p class="name"> <?php echo $item['name']?></p >
-                                            <b class="price">Giảm giá: 6.090.000 đ</b><br>
-                                            <b class="sale">Giá gốc: 7.000.000 đ</b><br>
-                                            <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fa fa-heart-o"></i> 10</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            <?php endforeach ?>
-                                
-                            </ul>
-                            <!-- </marquee> -->
-                        </div>
-                        <div class="box-left box-menu">
-                            <h3 class="box-title"><i class="fa fa-warning"></i>  Sản phẩm mới </h3>
-                            <!--  <marquee direction="down" onmouseover="this.stop()" onmouseout="this.start()"  > -->
-                            <ul>
-                                <li class="clearfix">
-                                    <a href="">
-                                        <img src="images/16-270x270.png" class="img-responsive pull-left" width="80" height="80">
-                                        <div class="info pull-right">
-                                            <p class="name"> Loa  mới nhất 2016  Loa  mới nhất 2016 Loa  mới nhất 2016</p >
-                                            <b class="price">Giảm giá: 6.090.000 đ</b><br>
-                                            <b class="sale">Giá gốc: 7.000.000 đ</b><br>
-                                            <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fa fa-heart-o"></i> 10</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="clearfix">
-                                    <a href="">
-                                        <img src="images/16-270x270.png" class="img-responsive pull-left" width="80" height="80">
-                                        <div class="info pull-right">
-                                            <p class="name"> Loa  mới nhất 2016  Loa  mới nhất 2016 Loa  mới nhất 2016</p >
-                                            <b class="price">Giảm giá: 6.090.000 đ</b><br>
-                                            <b class="sale">Giá gốc: 7.000.000 đ</b><br>
-                                            <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fa fa-heart-o"></i> 10</span>                                            
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="clearfix">
-                                    <a href="">
-                                        <img src="images/16-270x270.png" class="img-responsive pull-left" width="80" height="80">
-                                        <div class="info pull-right">
-                                            <p class="name"> Loa  mới nhất 2016  Loa  mới nhất 2016 Loa  mới nhất 2016</p >
-                                            <b class="price">Giảm giá: 6.090.000 đ</b><br>
-                                            <b class="sale">Giá gốc: 7.000.000 đ</b><br>
-                                            <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fa fa-heart-o"></i> 10</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="clearfix">
-                                    <a href="">
-                                        <img src="images/16-270x270.png" class="img-responsive pull-left" width="80" height="80">
-                                        <div class="info pull-right">
-                                            <p class="name"> Loa  mới nhất 2016  Loa  mới nhất 2016 Loa  mới nhất 2016</p >
-                                            <b class="price">Giảm giá: 6.090.000 đ</b><br>
-                                            <b class="sale">Giá gốc: 7.000.000 đ</b><br>
-                                            <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fa fa-heart-o"></i> 10</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- </marquee> -->
-                        </div>
-                    </div>

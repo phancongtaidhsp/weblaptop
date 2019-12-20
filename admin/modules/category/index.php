@@ -7,29 +7,29 @@
 
 <?php  require_once __DIR__. "/../../layouts/header.php"; ?>
     <div class="row">
-    	<div class="col-lg-12">
-        	<h1 class="page-header">
-            	Danh sách danh mục
-            	<a href="add.php" class="btn btn-success">Thêm mới</a>
-        	</h1>
-        	<ol class="breadcrumb">
-            	<li class="breadcrumb-item">
-                	<i class="fas fa-fw fa-tachometer-alt"></i>
-                	<a href="index.html">Dashboard </a>
-            	</li>
-            	<li class="breadcrumb-item active" aria-current="page">
-                	<i class="fa fa-file"></i>
-                		Danh mục
-            	</li>
-        	</ol>
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Danh sách danh mục
+                <a href="add.php" class="btn btn-success">Thêm mới</a>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <a href="index.html">Dashboard </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <i class="fa fa-file"></i>
+                        Danh mục
+                </li>
+            </ol>
             <div class="clearfix"></div>
             <?php  require_once __DIR__. "/../../../partials/notification.php"; ?>
-    	</div>
-	</div>
+        </div>
+    </div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card shadow mb-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
     </div>
@@ -118,6 +118,6 @@
         </div>
     </div>
 </div>
-		</div>
-	</div>
+        </div>
+    </div>
 <?php  require_once __DIR__. "/../../layouts/footer.php"; ?>

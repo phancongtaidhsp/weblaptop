@@ -21,7 +21,7 @@
     }
     else
     {
-      	$_SESSION['error'] = "Dữ liệu không thay đổi";
+        $_SESSION['error'] = "Dữ liệu không thay đổi";
         redirectAdmin("category");
     }
 ?>

@@ -1,31 +1,43 @@
-<?php  
-    require_once __DIR__. "/autoload/autoload.php";
+<?php 
 
-    $sqlHomecate = "SELECT name , id FROM category WHERE home = 1 ORDER BY updated_at";
-    $CategoryHome = $db->fetchsql($sqlHomecate);
+ require_once __DIR__. "/autoload/autoload.php";
+    $id = intval(getInput('id'));
+    $EditCategory = $db->fetchID("category",$id);
+    if(isset($_GET['p']))
+    	{
 
-    $data = [];
+    		$p = $_GET['p'];
+    	}
+    else
+    {
 
-    foreach ($CategoryHome as $item) {
-        $cateId = intval($item['id']);
-
-        $sql = "SELECT * FROM product WHERE category_id = $cateId ";
-        $ProductHome = $db->fetchsql($sql);
-        $data[$item['name']] = $ProductHome;
+    	$p = 1;
     }
+
+    $sql = " SELECT * FROM product WHERE category_id = $id ";
+
+    $total = count($db->fetchsql($sql));
+    $product = $sb->fetchJones("product",$sql,$total,1,$p,9,true);
+    $sotrang = $product['page'];
+  
+    unset($product['page']);
+
+
+    $path = $_SERVER['SCRIPT_NAME'];
+
+
+
 ?>
 <?php  require_once __DIR__. "/layouts/header.php"; ?>
                     <div class="col-md-9 bor">
-                        <section id="slide" class="text-center" >
-                            <img src="<?php echo base_url()  ?> public/frontend/images/banner.jpg" width="100%">
-                        </section>
+                        
                         <section class="box-main1">
-                            <?php foreach ($data as $key => $value): ?>
-                                <h3 class="title-main"><a href=""> <?php echo $key?></a> </h3>
-                            <div class="showitem "style="margin-top: 10px;margin-bottom: 10px;>
-                                <?php foreach ($value as $item): ?>
-                                    <div class="col-md-3 item-product bor">
-                                        <a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>">
+                        <h3 class="title-main"><a href=""> <?php echo $EditCategory['name']  ?></a> </h3>
+                        <div class="showitem clearfix">
+                        	<?php foreach ($product as $item): ?>                     
+                        <div class="col-md-3 item-product-bor">
+
+                        	 <a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>">
                                             <img src="<?php echo uploads() ?>/product/<?php echo $item['thunbar']?>" class="" width="100%" height="180">
                                         </a>
                                         <div class="info-item">
@@ -39,12 +51,19 @@
                                         </div>
                                     </div>
                                 <?php endforeach ?> 
+           					</div>
 
-                            </div>
-                        <?php endforeach ?> 
+                        <nav class="text-center">
+                        	<ul class="pagination">
+                        		<?php for ($i=1; $i <= $sotrang ; $i++) :?>
+                        			  <li class=""><a href="<?php echo 
+                        			  $path ?>? id= <?php echo $id ?>&&p=<?php echo $i ?>"><?php echo $i; ?></a></li>
+                        		<?php endfor; ?>
+								 
+								
+								</ul>
+							</nav>
                             
                         </section>
                     </div>
 <?php  require_once __DIR__. "/layouts/footer.php"; ?>
-
-                                
